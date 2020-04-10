@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :recipe do
-    name { "MyString" }
-    url { "MyString" }
-    image_url { "MyString" }
-    user { nil }
+    name { "My Recipe" }
+    url { "http://example.com" }
+    image_url { "http://example.com/image.jpg" }
+    user
   end
 
   factory :user do
