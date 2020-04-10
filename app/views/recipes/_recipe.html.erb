@@ -1,6 +1,11 @@
 <div>
+  <%= image_tag recipe.image_url, alt: recipe.name, size: "128x128" %>
   <h3>
     <%= link_to recipe.name, recipe.url %>
   </h3>
-  <%= image_tag recipe.image_url, alt: recipe.name, size: "128x128" %>
+  <ul>
+    <% recipe.tags.each do |tag| %>
+      <li><%= tag %></li>
+    <% end %>
+  </ul>
 </div>
