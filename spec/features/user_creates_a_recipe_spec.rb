@@ -18,4 +18,14 @@ feature "user creates a recipe" do
     expect(page).to have_content("tag1")
     expect(page).to have_content("tag2")
   end
+
+  scenario "unsuccessfully" do
+    user = create(:user)
+    visit root_path(as: user)
+
+    click_on "New Recipe"
+    click_on "Create"
+
+    expect(page).to have_content("Name can't be blank")
+  end
 end
