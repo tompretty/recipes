@@ -2,11 +2,6 @@
 
 <%= link_to "New Recipe", new_recipes_path %>
 
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li>
-      <h3><%= link_to recipe.name, recipe.url %></h3>
-      <%= image_tag recipe.image_url, alt: recipe.name, size: "128x128" %>
-    </li>
-  <% end %>
-</ul>
+<div>
+  <%= render @recipes %>
+</div>
