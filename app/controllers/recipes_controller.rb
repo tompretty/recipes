@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :require_login
-  before_action :set_recipe, only: [:edit, :update]
+  before_action :set_recipe, only: [:edit, :update, :destroy]
 
   def index
     @recipes = Recipe.all
@@ -28,6 +28,11 @@ class RecipesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @recipe.destroy
+    redirect_to root_path
   end
 
   private
