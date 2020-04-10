@@ -1,4 +1,4 @@
-<div>
+<div id=<%= dom_id(recipe) %>>
   <%= image_tag recipe.image_url, alt: recipe.name, size: "128x128" %>
   <h3>
     <%= link_to recipe.name, recipe.url %>
@@ -8,4 +8,5 @@
       <li><%= tag %></li>
     <% end %>
   </ul>
+  <%= link_to "Edit", edit_recipe_path(recipe) %>
 </div>

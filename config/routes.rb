@@ -20,5 +20,5 @@ Rails.application.routes.draw do
     root to: "welcome#index"
   end
 
-  resource :recipes, only: [:new, :create]
+  resources :recipes, only: [:new, :create, :edit, :update]
 end
