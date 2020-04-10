@@ -3,7 +3,10 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes
+    @recipes = @recipes.filter_by_tag(params[:tag]) if params[:tag]
+
+    @tags = current_user.recipes.tag_counts
   end
 
   def new

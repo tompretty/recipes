@@ -2,6 +2,10 @@
 
 <%= link_to "New Recipe", new_recipe_path %>
 
+<div id="tags">
+  <%= render partial: "tag", collection: @tags, as: :tag %>
+</div>
+
 <div>
   <%= render @recipes %>
 </div>
