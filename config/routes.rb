@@ -12,5 +12,13 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
-  root 'welcome#index'
+  constraints Clearance::Constraints::SignedIn.new do
+    root to: "recipes#index", as: :signed_in_root
+  end
+
+  constraints Clearance::Constraints::SignedOut.new do
+    root to: "welcome#index"
+  end
+
+  resource :recipes, only: [:new, :create]
 end
