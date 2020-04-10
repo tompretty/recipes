@@ -10,7 +10,7 @@ feature "user creates a recipe" do
     fill_in "Url", with: "http://example.com"
     fill_in "Image Url", with: "http://example.com/image.jpg"
     fill_in "Tags", with: "tag1, tag2"
-    click_on "Create"
+    click_on "Create Recipe"
 
     expect(page).to have_content("My Recipe")
     expect(page).to have_link(href: "http://example.com")
