@@ -14,11 +14,13 @@ gem 'clearance', '~> 2.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0'
+  gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :test do
   gem 'capybara', '~> 3.32', '>= 3.32.1'
+  gem 'database_cleaner-active_record', '~> 1.8'
 end
 
 group :development do
