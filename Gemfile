@@ -21,6 +21,7 @@ end
 group :test do
   gem 'capybara', '~> 3.32', '>= 3.32.1'
   gem 'database_cleaner-active_record', '~> 1.8'
+  gem 'shoulda-matchers', '~> 4.3'
 end
 
 group :development do
