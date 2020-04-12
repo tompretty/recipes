@@ -12,6 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'clearance', '~> 2.1'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'kaminari', '~> 1.2'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0'
