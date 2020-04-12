@@ -24,7 +24,7 @@
 
   <div>
     <%= form.label :tag_list, "Tags" %>
-    <%= form.text_field :tag_list %>
+    <%= form.text_field :tag_list, value: recipe.tags.join(", ") %>
   </div>
 
   <%= form.submit %>
