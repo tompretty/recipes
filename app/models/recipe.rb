@@ -8,4 +8,8 @@ class Recipe < ApplicationRecord
   def self.filter_by_tag(tag)
     tagged_with(tag)
   end
+
+  def self.filter_by_name(name)
+    where("lower(name) LIKE :name", name: "%" + name + "%")
+  end
 end

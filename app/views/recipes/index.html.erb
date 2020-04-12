@@ -2,6 +2,12 @@
 
 <%= link_to "New Recipe", new_recipe_path %>
 
+<%= form_tag root_path, method: :get, id: "search" do %>
+  <%= text_field_tag "tag", params[:tag], hidden: true, disabled: params[:tag].nil? %>
+  <%= text_field_tag "name" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <div id="tags">
   <div>
     <%= link_to root_path do %>

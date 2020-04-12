@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   def index
     @recipes = current_user.recipes
     @recipes = @recipes.filter_by_tag(params[:tag]) if params[:tag]
+    @recipes = @recipes.filter_by_name(params[:name]) if params[:name]
 
     @tags = current_user.recipes.tag_counts
   end

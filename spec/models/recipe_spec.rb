@@ -23,4 +23,26 @@ RSpec.describe Recipe, type: :model do
       expect(result).to eq(["tagged1", "tagged2"])
     end
   end
+
+  describe ".filter_by_name" do
+    it "returns the recipes with the given name" do
+      user = create(:user)
+      create(:recipe, name: "yes1", user: user)
+      create(:recipe, name: "yes2", user: user)
+      create(:recipe, name: "no", user: user)
+
+      result = user.recipes.filter_by_name("yes").map(&:name)
+
+      expect(result).to eq(["yes1", "yes2"])
+    end
+
+    it "is case insensitive" do
+      user = create(:user)
+      create(:recipe, name: "YES", user: user)
+
+      result = user.recipes.filter_by_name("yes").map(&:name)
+
+      expect(result).to eq(["YES"])
+    end
+  end
 end
