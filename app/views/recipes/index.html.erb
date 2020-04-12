@@ -3,6 +3,11 @@
 <%= link_to "New Recipe", new_recipe_path %>
 
 <div id="tags">
+  <div>
+    <%= link_to root_path do %>
+      all (<%= current_user.recipes.count %>)
+    <% end %>
+  </div>
   <%= render partial: "tag", collection: @tags, as: :tag %>
 </div>
 
