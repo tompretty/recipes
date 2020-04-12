@@ -17,6 +17,24 @@
   <%= render partial: "tag", collection: @tags, as: :tag %>
 </div>
 
+<% if params[:tag] || params[:name].present? %>
+  <p>
+    filtered by 
+    <% if params[:tag] %>
+      <span>
+        tag: <%= params[:tag]  %>
+      <%= link_to "&times;".html_safe, request.params.except(:tag) %>
+      </span>
+    <% end %>
+    <% if params[:name].present? %>
+      <span>
+        name: <%= params[:name]  %>
+      <%= link_to "&times;".html_safe, request.params.except(:name, :commit) %>
+      </span>
+    <% end %>
+  </p>
+<% end %>
+
 <div>
   <%= render @recipes %>
 
