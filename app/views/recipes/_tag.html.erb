@@ -1,3 +1,5 @@
 <div>
-  <%= link_to tag.name, request.params.merge(tag: tag.name) %>
+  <%= link_to request.params.merge(tag: tag.name) do %>
+    <%= tag.name %> ( <%= tag.count %> )
+  <% end %>
 </div>
