@@ -5,7 +5,7 @@
     </span>
 
     <% if params[:tag] %>
-      <span class="ml-2 px-2 py-1 rounded-full border border-gray-600">
+      <span class="ml-2 px-2 py-1 text-sm text-gray-700 tracking-wide font-semibold rounded-full border-2 border-gray-700">
         <%= params[:tag]  %>
         <%= link_to "&times;".html_safe, request.params.except(:tag) %>
       </span>
@@ -13,7 +13,7 @@
     <% end %>
 
     <% if params[:name].present? %>
-      <span class="ml-2 px-2 py-1 rounded-full border border-gray-600">
+      <span class="ml-2 px-2 py-1 text-sm text-gray-700 tracking-wide font-semibold rounded-full border-2 border-gray-700">
         <%= params[:name]  %>
         <%= link_to "&times;".html_safe, request.params.except(:name, :commit) %>
       </span>

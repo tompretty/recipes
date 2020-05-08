@@ -1,8 +1,5 @@
-
-<%= link_to "New Recipe", new_recipe_path %>
-
-<div class="flex w-full max-w-screen-lg mx-auto">
-  <div class="w-1/5">
+<div class="flex w-full max-w-screen-lg px-4 mx-auto">
+  <div class="mt-4 w-1/5">
     <h1 class="text-lg text-gray-800 font-semibold">My Recipes</h1>
 
     <div class="mt-4">
@@ -18,8 +15,11 @@
     </div>
   </div>
 
-  <div class="w-4/5">
-    <%= render "recipes/search" %>
+  <div class="mt-4 w-4/5">
+    <div class="flex items-center space-x-4 w-full">
+      <%= render "recipes/search" %>
+      <%= link_to "New Recipe", new_recipe_path, class: "flex-shrink-0 px-4 py-2 text-gray-700 font-semibold tracking-wide border-2 border-gray-700 hover:bg-gray-700 hover:text-white rounded" %>
+    </div>
 
     <%= render "recipes/filtered_by" %>
 
