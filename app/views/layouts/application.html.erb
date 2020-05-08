@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-gray-100 text-gray-900">
     <% if signed_in? %>
         Signed in as: <%= current_user.email %>
         <%= link_to 'Sign out', sign_out_path, method: :delete %>

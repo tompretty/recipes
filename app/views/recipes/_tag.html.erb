@@ -1,5 +1,10 @@
-<div>
-  <%= link_to request.params.merge(tag: tag.name) do %>
-    <%= tag.name %> ( <%= tag.count %> )
+<div class="px-4 py-1 text-sm <%= is_active ? 'text-gray-800' : 'text-gray-500' %> hover:text-gray-800 font-semibold hover:bg-gray-200 rounded">
+  <%= link_to link do %>
+    <span>
+      <%= name %>
+    </span>
+    <span class="text-xs text-gray-500">
+      (<%= count %>)
+    </span>
   <% end %>
 </div>

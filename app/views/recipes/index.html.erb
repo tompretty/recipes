@@ -1,42 +1,52 @@
-<h1>Recipes</h1>
 
 <%= link_to "New Recipe", new_recipe_path %>
 
-<%= form_tag root_path, method: :get, id: "search" do %>
-  <%= text_field_tag "tag", params[:tag], hidden: true, disabled: params[:tag].nil? %>
-  <%= text_field_tag "name" %>
-  <%= submit_tag "Search" %>
-<% end %>
+<div class="flex w-full max-w-screen-lg mx-auto">
+  <div class="w-1/5">
+    <h1 class="text-lg text-gray-800 font-semibold">My Recipes</h1>
 
-<div id="tags">
-  <div>
-    <%= link_to root_path do %>
-      all (<%= current_user.recipes.count %>)
-    <% end %>
+    <div class="mt-4">
+      <h2 class="text-sm tracking-wide font-bold uppercase text-gray-600">Tags</h2>
+
+      <div class="mt-2 pr-4">
+        <%= all_filter_tag %>
+
+        <% @tags.each do |tag| %>
+          <%= filter_tag tag %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <%= render partial: "tag", collection: @tags, as: :tag %>
-</div>
 
-<% if params[:tag] || params[:name].present? %>
-  <p>
-    filtered by 
-    <% if params[:tag] %>
-      <span>
-        tag: <%= params[:tag]  %>
-      <%= link_to "&times;".html_safe, request.params.except(:tag) %>
-      </span>
+  <div class="w-4/5">
+    <%= form_tag root_path, method: :get, id: "search" do %>
+      <%= text_field_tag "tag", params[:tag], hidden: true, disabled: params[:tag].nil? %>
+      <%= text_field_tag "name" %>
+      <%= submit_tag "Search" %>
     <% end %>
-    <% if params[:name].present? %>
-      <span>
-        name: <%= params[:name]  %>
-      <%= link_to "&times;".html_safe, request.params.except(:name, :commit) %>
-      </span>
+
+    <% if params[:tag] || params[:name].present? %>
+      <p>
+        filtered by 
+        <% if params[:tag] %>
+          <span>
+            tag: <%= params[:tag]  %>
+          <%= link_to "&times;".html_safe, request.params.except(:tag) %>
+          </span>
+        <% end %>
+        <% if params[:name].present? %>
+          <span>
+            name: <%= params[:name]  %>
+          <%= link_to "&times;".html_safe, request.params.except(:name, :commit) %>
+          </span>
+        <% end %>
+      </p>
     <% end %>
-  </p>
-<% end %>
 
-<div>
-  <%= render @recipes %>
+    <div>
+      <%= render @recipes %>
 
-  <%= paginate @recipes %>
+      <%= paginate @recipes %>
+    </div>
+  </div>
 </div>
