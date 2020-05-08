@@ -19,31 +19,11 @@
   </div>
 
   <div class="w-4/5">
-    <%= form_tag root_path, method: :get, id: "search" do %>
-      <%= text_field_tag "tag", params[:tag], hidden: true, disabled: params[:tag].nil? %>
-      <%= text_field_tag "name" %>
-      <%= submit_tag "Search" %>
-    <% end %>
+    <%= render "recipes/search" %>
 
-    <% if params[:tag] || params[:name].present? %>
-      <p>
-        filtered by 
-        <% if params[:tag] %>
-          <span>
-            tag: <%= params[:tag]  %>
-          <%= link_to "&times;".html_safe, request.params.except(:tag) %>
-          </span>
-        <% end %>
-        <% if params[:name].present? %>
-          <span>
-            name: <%= params[:name]  %>
-          <%= link_to "&times;".html_safe, request.params.except(:name, :commit) %>
-          </span>
-        <% end %>
-      </p>
-    <% end %>
+    <%= render "recipes/filtered_by" %>
 
-    <div>
+    <div class="divide-y mt-6 px-4 py-2 rounded shadow bg-white">
       <%= render @recipes %>
 
       <%= paginate @recipes %>

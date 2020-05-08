@@ -7,6 +7,10 @@ module RecipesHelper
     render partial: "tag", locals: locals_for_tag(tag)
   end
 
+  def filters_applied?
+    (params[:tag] || params[:name]).present?
+  end
+
   private
 
   def locals_for_all_tag

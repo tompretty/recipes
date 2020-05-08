@@ -1,13 +1,22 @@
-<div id=<%= dom_id(recipe) %>>
-  <%= image_tag recipe.image_url, alt: recipe.name, size: "128x128" %>
-  <h3>
-    <%= link_to recipe.name, recipe.url %>
-  </h3>
-  <ul>
-    <% recipe.tags.each do |tag| %>
-      <li><%= tag %></li>
-    <% end %>
-  </ul>
-  <%= link_to "Edit", edit_recipe_path(recipe) %>
-  <%= link_to "Delete", recipe, method: :delete %>
+<div id=<%= dom_id(recipe) %> class="flex py-2">
+  <%= image_tag recipe.image_url, alt: recipe.name, size: "128x128", class: "rounded" %>
+
+  <div class="flex flex-col ml-4">
+    <h3>
+      <%= link_to recipe.name, recipe.url, class: "text-xl font-semibold hover:underline" %>
+    </h3>
+
+    <ul class="flex gap-2 mt-2">
+      <% recipe.tags.each do |tag| %>
+        <li class="px-2 bg-gray-200 rounded-full">
+          <%= tag %>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="mt-auto">
+      <%= link_to "Edit", edit_recipe_path(recipe), class: "hover:underline" %> |
+      <%= link_to "Delete", recipe, method: :delete, class: "hover:underline" %>
+    </div>
+  </div>
 </div>

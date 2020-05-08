@@ -1,0 +1,6 @@
+<%= form_tag root_path, method: :get, id: "search" do %>
+  <%= text_field_tag "tag", params[:tag], hidden: true, disabled: params[:tag].nil? %>
+  <div class="flex w-full">
+    <%= text_field_tag "name", nil, class: "w-full px-4 py-2 rounded shadow focus:shadow-outline", placeholder: "Search..." %>
+  </div>
+<% end %>

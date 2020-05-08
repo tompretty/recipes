@@ -1,0 +1,22 @@
+<% if filters_applied? %>
+  <div class="mx-4 mt-4">
+    <span class="text-xs font-bold tracking-wide uppercase">
+      Filtered by:
+    </span>
+
+    <% if params[:tag] %>
+      <span class="ml-2 px-2 py-1 rounded-full border border-gray-600">
+        <%= params[:tag]  %>
+        <%= link_to "&times;".html_safe, request.params.except(:tag) %>
+      </span>
+
+    <% end %>
+
+    <% if params[:name].present? %>
+      <span class="ml-2 px-2 py-1 rounded-full border border-gray-600">
+        <%= params[:name]  %>
+        <%= link_to "&times;".html_safe, request.params.except(:name, :commit) %>
+      </span>
+    <% end %>
+  </div>
+<% end %>
