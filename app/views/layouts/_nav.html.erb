@@ -1,0 +1,11 @@
+<header class="flex items-center h-16 bg-gray-800 text-white">
+  <div class="ml-4 uppercase tracking-wide font-bold">Recipes</div>
+
+  <div class="ml-auto mr-4 hover:underline">
+    <% if signed_in? %>
+      <%= link_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <% end %>
+  </div>
+</header>
