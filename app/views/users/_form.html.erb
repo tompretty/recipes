@@ -1,9 +1,23 @@
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
-</div>
+<%= form_for @user do |form| %>
+  <div class="mt-4 grid gap-4">
+    <div class="flex flex-col">
+      <%= form.label :email, class: "font-semibold text-gray-800" %>
+      <%= form.email_field :email, class: "w-full mt-2 px-4 py-1 bg-gray-200 rounded focus:bg-white focus:shadow-outline"%>
+    </div>
 
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
+    <div class="flex flex-col">
+      <%= form.label :password, class: "font-semibold text-gray-800" %>
+      <%= form.password_field :password, class: "w-full mt-2 px-4 py-1 bg-gray-200 rounded focus:bg-white focus:shadow-outline"%>
+    </div>
+
+
+    <div class="flex justify-between items-center mt-6">
+      <%= form.submit class: "px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800 hover:cursor-pointer" %>
+
+      <div class="other-links">
+          <%= link_to t(".sign_in"), sign_in_path, class: "hover:underline" %>
+      </div>
+    </div>
+
+  </div>
+<% end %>
