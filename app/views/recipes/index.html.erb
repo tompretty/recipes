@@ -24,9 +24,12 @@
     <%= render "recipes/filtered_by" %>
 
     <div class="divide-y mt-6 px-4 py-2 rounded shadow bg-white">
-      <%= render @recipes %>
-
-      <%= paginate @recipes %>
+      <% if @recipes.empty? %>
+        <p class="w-full text-center text-gray-500 text-lg font-bold tracking-wide">No recipes here...</p>
+      <% else %>
+        <%= render @recipes %>
+        <%= paginate @recipes %>
+      <% end %>
     </div>
   </div>
 </div>
